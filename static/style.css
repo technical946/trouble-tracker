@@ -1,0 +1,219 @@
+/* Dark Mode Styles */
+body {
+    background-color: #1e1e2f; /* Gelap untuk latar belakang */
+    color: #e0e0e0; /* Warna teks terang */
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    background-color: #232323; /* Navbar gelap */
+    color: white;
+}
+
+.navbar-brand {
+    color: #e0e0e0 !important; /* Warna teks navbar */
+}
+
+footer {
+    background-color: #232323; /* Footer gelap */
+    color: #e0e0e0; /* Warna teks footer */
+}
+
+.card {
+    background-color: #2b2b3c; /* Card gelap */
+    border: 1px solid #3d3d5c; /* Border card */
+}
+
+.card-body {
+    color: white; /* Warna teks di card */
+}
+
+.table {
+    background-color: #121212; /* Background tabel gelap */
+    color: white;
+}
+
+.table th, .table td {
+    border: 1px solid #3d3d5c;
+    color: rgb(15, 15, 15);
+}
+
+.table-striped tbody tr:hover {
+    background-color: #44444f; /* Hover pada tabel */
+}
+
+.table-primary {
+    background-color: #333333; /* Background header tabel */
+    color: rgb(12, 12, 12);
+}
+
+.form-control {
+    background-color: #2b2b3c;
+    color: white;
+    border-color: #3d3d5c;
+}
+
+input::placeholder {
+    color: #bbbbbb; /* Warna placeholder lebih terang */
+}
+
+.btn {
+    background-color: #007bff; /* Warna tombol utama */
+    border-color: #007bff;
+    color: white; /* Menambahkan warna putih untuk teks tombol */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Warna hover tombol */
+    border-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #4CAF50; /* Tombol Success */
+    border-color: #4CAF50;
+}
+
+.btn-success:hover {
+    background-color: #45a049;
+}
+
+.btn-warning {
+    background-color: #ff9800; /* Tombol Warning */
+    border-color: #ff9800;
+}
+
+.btn-warning:hover {
+    background-color: #ffb84d;
+}
+
+.btn-danger {
+    background-color: #f44336; /* Tombol Danger */
+    border-color: #f44336;
+}
+
+.btn-danger:hover {
+    background-color: #f55a5a;
+}
+
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.card-header {
+    background-color: #444; /* Background header card */
+}
+
+/* Dark Mode Styling for Sidebar or Panels */
+.panel {
+    background-color: #222222;
+    color: white;
+    border-color: #444444;
+}
+
+/* Additional Styling for Links and Buttons */
+a {
+    color: #1e90ff; /* Warna link terang untuk lebih kontras */
+}
+
+a:hover {
+    color: #ff6347; /* Warna hover untuk link */
+}
+
+th, td {
+    color: white; /* Teks di tabel berwarna putih */
+}
+
+/* Input Fields */
+input, textarea {
+    background-color: #333333;
+    color: rgb(8, 8, 8);
+    border-color: #444444;
+}
+/* Dark Mode for Login and Add Data Pages */
+body {
+    background-color: #1e1e2f; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+}
+
+.card {
+    background-color: #2b2b3c; /* Dark background for card */
+    color: white; /* White text for card */
+    border: 1px solid #3d3d5c; /* Border for card */
+}
+
+.card-header, .card-body {
+    background-color: #2b2b3c;
+    color: white;
+}
+
+.form-control {
+    background-color: #333333; /* Dark input fields */
+    color: white; /* White text in input fields */
+    border-color: #444444;
+}
+
+.btn {
+    background-color: #007bff; /* Blue buttons */
+    border-color: #007bff;
+    color: white; /* Button text in white */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3;
+}
+
+input::placeholder {
+    color: #bbbbbb; /* Placeholder text */
+}
+
+h2, h3 {
+    color: #e0e0e0; /* White headings */
+}
+/* Dark Mode for Confirm Delete Page */
+body {
+    background-color: #1e1e2f; /* Latar belakang gelap */
+    color: #e0e0e0; /* Teks terang */
+}
+
+.card {
+    background-color: #2b2b3c; /* Card dengan latar belakang gelap */
+    color: white; /* Teks dalam card */
+    border: 1px solid #3d3d5c; /* Border card */
+}
+
+.card-header, .card-body {
+    background-color: #2b2b3c;
+    color: white;
+}
+
+.table {
+    background-color: #121212; /* Tabel dengan background gelap */
+    color: white; /* Teks tabel berwarna putih */
+}
+
+.table th, .table td {
+    border: 1px solid #3d3d5c;
+}
+
+button, .btn {
+    background-color: #007bff; /* Warna tombol utama */
+    border-color: #007bff;
+    color: white; /* Warna teks tombol */
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3; /* Warna hover tombol */
+    border-color: #0056b3;
+}
+
+a {
+    color: #1e90ff; /* Warna link terang */
+}
+
+a:hover {
+    color: #ff6347; /* Warna hover link */
+}

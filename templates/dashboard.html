@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dashboard - Trouble Tracker</title>
+  <meta charset="UTF-8">
+  <title>Dashboard - Trouble Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h2>Selamat datang di Trouble Tracker</h2>
-    <p><a href="/logout">Logout</a></p>
+<body class="bg-dark text-light">
+
+  <div class="container py-5">
+    <h2 class="mb-4 text-center">Mercindo Mampang Mercedes-Benz</h2>
+
+    <!-- Tombol Logout di pojok kanan atas -->
+    <a href="{{ url_for('logout') }}" class="btn btn-warning position-absolute" style="top: 10px; right: 20px;">Logout</a>
+
+    <!-- Form Pencarian -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-body">
+        <form class="row g-3" method="GET" action="{{ url_for('dashboard') }}">
+          <div class="col-md-4 col-12">
+            <label for="chassis" class="form-label">Chassis</label>
+            <input type="text" name="chassis" class="form-control" id="chassis" placeholder="Contoh: W205" value="{{ request.args.get('chassis', '') }}">
+          </div>
+          <div class="col-md-4 col-12">
+            <label for="engine" class="form-label">Engine</label>
+            <input type="text" name="engine" class="form-control" id="engine" placeholder="Contoh: M264" value="{{ request.args.get('engine', '') }}">
+          </div>
+          <div class="col-md-4 col-12">
+            <label for="problem" class="form-label">Problem</label>
+            <input type="text" name="problem" class="form-control" id="problem" placeholder="Contoh: Mesin bergetar" value="{{ request.args.get('problem', '') }}">
+          </div>
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-primary mt-2">🔍 Cari</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Tombol Tambah Data untuk Admin -->
+    {% if session['role'] == 'admin' %}
+    <a href="{{ url_for('add_data') }}" class="btn btn-success mb-3">Tambah Data</a>
+    {% endif %}
+
+    <!-- Tabel Data Masalah Mobil -->
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title mb-3">Daftar Masalah Mobil</h5>
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead class="table-primary">
+              <tr>
+                <th>Chassis</th>
+                <th>Engine</th>
+                <th>Problem</th>
+                <th>Test Level</th>
+                <th>Actual Value</th>
+                <th>Solusi</th>
+                <th>Dokumen</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for problem in problems %}
+                <tr>
+                  <td>{{ problem.chassis }}</td>
+                  <td>{{ problem.engine }}</td>
+                  <td>{{ problem.deskripsi }}</td>
+                  <td>{{ problem.test_level }}</td>
+                  <td>{{ problem.actual_value }}</td>
+                  <td>{{ problem.solusi }}</td>
+                  <td>
+                    {% for file in problem.files.split(',') %}
+                      <a href="{{ url_for('uploaded_file', filename=file) }}" target="_blank">{{ file }}</a><br>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    {% if session['role'] == 'admin' %}
+                      <!-- Hapus dengan Konfirmasi -->
+                      <a href="{{ url_for('confirm_delete', id=problem.id) }}" class="btn btn-warning btn-sm">Hapus</a>
+                    {% endif %}
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4 text-muted">
+    &copy; {{ year }} Trouble Tracker | Alex Project
+  </footer>
+
 </body>
 </html>

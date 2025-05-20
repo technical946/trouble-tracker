@@ -1,21 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Login - Trouble Tracker</title>
+  <meta charset="UTF-8">
+  <title>Login - Trouble Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    <h2>Login</h2>
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-    <form method="POST">
-        <label>Username:</label><br>
-        <input type="text" name="username"><br><br>
+<body class="bg-dark text-light">
 
-        <label>Password:</label><br>
-        <input type="password" name="password"><br><br>
+  <div class="container py-5">
+    <h2 class="text-center mb-4">Login</h2>
+    <div class="card mx-auto" style="max-width: 400px;">
+      <div class="card-header">
+        <h4 class="text-center">🔒 Login</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
 
-        <button type="submit">Login</button>
-    </form>
 </body>
 </html>
